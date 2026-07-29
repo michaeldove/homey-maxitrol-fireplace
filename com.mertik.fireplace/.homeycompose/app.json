@@ -1,0 +1,26 @@
+{
+  "id": "com.mertik.fireplace",
+  "version": "0.1.0",
+  "compatibility": ">=13.0.0",
+  "sdk": 3,
+  "runtime": "python",
+  "pythonVersion": "3.14",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Mertik Fireplace"
+  },
+  "description": {
+    "en": "Controls Mertik Maxitrol G6R-H4T5 fireplaces over 433 MHz."
+  },
+  "author": {
+    "name": "Mertik Fireplace App Contributors"
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [
+    "homey:wireless:433"
+  ]
+}

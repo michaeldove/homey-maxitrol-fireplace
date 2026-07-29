@@ -1,0 +1,19 @@
+[project]
+name = "com.mertik.fireplace"
+version = "0.1.0"
+requires-python = ">=3.14"
+
+[tool.pyright]
+reportMissingModuleSource = "none"
+
+[tool.coverage.run]
+branch = true
+source = ["."]
+omit = [
+  "tests/*",
+]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_covered = true

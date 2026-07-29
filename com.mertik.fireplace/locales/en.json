@@ -1,0 +1,12 @@
+{
+  "pair": {
+    "learn": {
+      "title": "Learn fireplace remote",
+      "intro": "Place the remote near Homey. Start learning, then press and hold the Flame Down button on the remote for two seconds.",
+      "button": "Start learning",
+      "listening": "Listening for a compatible G6R remote…",
+      "found": "Remote __address__ found. Adding the fireplace…",
+      "failed": "No compatible remote was detected. Try again and hold Flame Down for two seconds."
+    }
+  }
+}

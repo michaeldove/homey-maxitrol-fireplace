@@ -1,0 +1,34 @@
+{
+  "name": {
+    "en": "G6R Fireplace"
+  },
+  "class": "heater",
+  "capabilities": [
+    "onoff",
+    "button.flame_up",
+    "button.flame_down"
+  ],
+  "capabilitiesOptions": {
+    "button.flame_up": {
+      "title": {
+        "en": "Flame up"
+      }
+    },
+    "button.flame_down": {
+      "title": {
+        "en": "Flame down"
+      }
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "rf433"
+  ],
+  "pair": [
+    {
+      "id": "learn_remote"
+    }
+  ]
+}

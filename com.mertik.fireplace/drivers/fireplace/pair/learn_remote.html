@@ -1,0 +1,44 @@
+<main class="homey-form">
+  <p data-i18n="pair.learn.intro"></p>
+
+  <button
+    id="learn-button"
+    class="homey-button-primary-full"
+    type="button"
+    data-i18n="pair.learn.button"
+  ></button>
+
+  <p id="learn-status" role="status" aria-live="polite"></p>
+</main>
+
+<script type="application/javascript">
+  Homey.setTitle(Homey.__("pair.learn.title"));
+
+  const learnButton = document.getElementById("learn-button");
+  const learnStatus = document.getElementById("learn-status");
+
+  learnButton.addEventListener("click", async () => {
+    learnButton.disabled = true;
+    learnStatus.textContent = Homey.__("pair.learn.listening");
+
+    try {
+      const device = await Homey.emit("learn_remote");
+      const address = `0x${device.data.address
+        .toString(16)
+        .toUpperCase()
+        .padStart(5, "0")}`;
+
+      learnStatus.textContent = Homey.__("pair.learn.found", { address });
+      await Homey.createDevice(device);
+      Homey.done();
+    } catch (error) {
+      const message = error && error.message
+        ? error.message
+        : Homey.__("pair.learn.failed");
+
+      learnStatus.textContent = message;
+      await Homey.alert(message, "error");
+      learnButton.disabled = false;
+    }
+  });
+</script>

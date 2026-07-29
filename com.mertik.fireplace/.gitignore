@@ -1,0 +1,10 @@
+/env.json
+/.homeybuild/
+/.python_cache/
+/python_packages/
+/.venv/
+/.coverage
+/htmlcov/
+/coverage.xml
+__pycache__/
+*.pyc

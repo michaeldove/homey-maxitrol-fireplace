@@ -1,0 +1,22 @@
+{
+  "carrier": 433920000,
+  "words": [
+    [
+      308,
+      624
+    ],
+    [
+      609,
+      323
+    ]
+  ],
+  "eof": [
+    609,
+    21860
+  ],
+  "interval": 21860,
+  "repetitions": 10,
+  "sensitivity": 0.4,
+  "minimalLength": 22,
+  "maximalLength": 22
+}

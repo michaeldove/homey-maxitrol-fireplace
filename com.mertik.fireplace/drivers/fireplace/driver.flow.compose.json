@@ -1,0 +1,24 @@
+{
+  "actions": [
+    {
+      "id": "flame_up",
+      "title": {
+        "en": "Increase the flame"
+      },
+      "titleFormatted": {
+        "en": "Increase the flame"
+      },
+      "duration": true
+    },
+    {
+      "id": "flame_down",
+      "title": {
+        "en": "Decrease the flame"
+      },
+      "titleFormatted": {
+        "en": "Decrease the flame"
+      },
+      "duration": true
+    }
+  ]
+}
