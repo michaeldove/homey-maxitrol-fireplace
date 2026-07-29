@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import unittest
 
-from mertik_protocol import Command, build_frame
+from maxitrol_g6r_h4t_protocol import Command, build_frame
 
 APP_ROOT = Path(__file__).resolve().parents[1]
 SIGNAL_PATH = (
@@ -10,7 +10,7 @@ SIGNAL_PATH = (
     / ".homeycompose"
     / "signals"
     / "433"
-    / "mertik_g6r_h4t5.json"
+    / "maxitrol_g6r_h4t_433.json"
 )
 
 
@@ -46,6 +46,6 @@ class SignalManifestTests(unittest.TestCase):
             (APP_ROOT / "app.json").read_text(encoding="utf-8")
         )
         packaged_signal = generated_manifest["signals"]["433"][
-            "mertik_g6r_h4t5"
+            "maxitrol_g6r_h4t_433"
         ]
         self.assertEqual(packaged_signal, self.signal)

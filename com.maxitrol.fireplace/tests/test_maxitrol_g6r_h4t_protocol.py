@@ -1,6 +1,6 @@
 import unittest
 
-from mertik_protocol import (
+from maxitrol_g6r_h4t_protocol import (
     ADDRESS_BITS,
     FRAME_BITS,
     MAX_ADDRESS,

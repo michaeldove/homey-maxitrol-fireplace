@@ -4,14 +4,14 @@ from typing import Any
 from homey.driver import Driver as HomeyDriver
 from homey.pair_session import PairSession
 
-from ...mertik_protocol import parse_frame
+from ...maxitrol_g6r_h4t_protocol import parse_frame
 
-SIGNAL_ID = "mertik_g6r_h4t5"
+SIGNAL_ID = "maxitrol_g6r_h4t_433"
 LEARN_TIMEOUT_SECONDS = 30
 LEARN_MATCHING_FRAMES = 3
 
 
-class MertikFireplaceDriver(HomeyDriver):
+class MaxitrolFireplaceDriver(HomeyDriver):
     async def on_init(self) -> None:
         await super().on_init()
 
@@ -36,7 +36,7 @@ class MertikFireplaceDriver(HomeyDriver):
             await device.decrease_flame(duration_ms=duration)
 
         flame_down_card.register_run_listener(on_flame_down)
-        self.log("Mertik Fireplace driver initialized")
+        self.log("Maxitrol G6R driver initialized")
 
     async def on_pair(self, session: PairSession) -> None:
         signal = self.homey.rf.get_signal_433(SIGNAL_ID)
@@ -87,7 +87,7 @@ class MertikFireplaceDriver(HomeyDriver):
                 candidate_counts.clear()
                 learned_address = loop.create_future()
                 await signal.enable_rx()
-                self.log("Listening for a G6R-H4T5 handset frame")
+                self.log("Listening for a compatible G6R H4T handset frame")
 
                 try:
                     address = await asyncio.wait_for(
@@ -105,9 +105,9 @@ class MertikFireplaceDriver(HomeyDriver):
 
                 address_hex = f"0x{address:05X}"
                 return {
-                    "name": f"Mertik Fireplace ({address_hex})",
+                    "name": f"Maxitrol G6R Fireplace ({address_hex})",
                     "data": {
-                        "id": f"g6r-h4t5-{address:05x}",
+                        "id": f"g6r-h4t-433-{address:05x}",
                         "address": address,
                     },
                 }
@@ -125,4 +125,4 @@ class MertikFireplaceDriver(HomeyDriver):
         session.set_handler("disconnect", on_disconnect)
 
 
-homey_export = MertikFireplaceDriver
+homey_export = MaxitrolFireplaceDriver

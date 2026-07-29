@@ -3,7 +3,7 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import AsyncMock, patch
 
-from mertik_protocol import Command, build_frame
+from maxitrol_g6r_h4t_protocol import Command, build_frame
 
 from homey_test_support import load_app_module
 
@@ -84,7 +84,7 @@ class DriverTests(unittest.IsolatedAsyncioTestCase):
             "drivers.fireplace.driver",
         )
         selected_signal = signal or FakeSignal()
-        driver = module.MertikFireplaceDriver()
+        driver = module.MaxitrolFireplaceDriver()
         driver.homey = SimpleNamespace(rf=FakeRF(selected_signal))
         session = FakePairSession()
 
@@ -97,7 +97,7 @@ class DriverTests(unittest.IsolatedAsyncioTestCase):
             "drivers.fireplace.driver",
         )
         flow = FakeFlow()
-        driver = module.MertikFireplaceDriver()
+        driver = module.MaxitrolFireplaceDriver()
         driver.homey = SimpleNamespace(flow=flow)
 
         await driver.on_init()
@@ -135,9 +135,9 @@ class DriverTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(
             result,
             {
-                "name": "Mertik Fireplace (0x2A5A5)",
+                "name": "Maxitrol G6R Fireplace (0x2A5A5)",
                 "data": {
-                    "id": "g6r-h4t5-2a5a5",
+                    "id": "g6r-h4t-433-2a5a5",
                     "address": address_b,
                 },
             },

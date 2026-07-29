@@ -4,10 +4,10 @@ import sys
 from types import ModuleType
 from typing import Any
 
-import mertik_protocol
+import maxitrol_g6r_h4t_protocol
 
 APP_ROOT = Path(__file__).resolve().parents[1]
-TEST_PACKAGE = "_mertik_test_app"
+TEST_PACKAGE = "_maxitrol_test_app"
 
 
 class StubApp:
@@ -87,7 +87,9 @@ def _install_test_package() -> None:
         package.__path__ = [str(path)]  # type: ignore[attr-defined]
         sys.modules[name] = package
 
-    sys.modules[f"{TEST_PACKAGE}.mertik_protocol"] = mertik_protocol
+    sys.modules[f"{TEST_PACKAGE}.maxitrol_g6r_h4t_protocol"] = (
+        maxitrol_g6r_h4t_protocol
+    )
 
 
 def load_app_module(relative_path: str, module_suffix: str) -> ModuleType:

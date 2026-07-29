@@ -3,13 +3,17 @@ from typing import Any
 
 from homey.device import Device as HomeyDevice
 
-from ...mertik_protocol import Command, build_frame, repetitions_for_duration
+from ...maxitrol_g6r_h4t_protocol import (
+    Command,
+    build_frame,
+    repetitions_for_duration,
+)
 
-SIGNAL_ID = "mertik_g6r_h4t5"
+SIGNAL_ID = "maxitrol_g6r_h4t_433"
 DEFAULT_REPETITIONS = 10
 
 
-class MertikFireplaceDevice(HomeyDevice):
+class MaxitrolFireplaceDevice(HomeyDevice):
     handset_address: int
     _transmit_lock: asyncio.Lock
 
@@ -26,7 +30,7 @@ class MertikFireplaceDevice(HomeyDevice):
         self.register_capability_listener("button.flame_down", self._on_flame_down)
 
         self.log(
-            f"Initialized G6R-H4T5 fireplace at address "
+            f"Initialized G6R H4T 433 MHz fireplace at address "
             f"0x{self.handset_address:05X}"
         )
 
@@ -69,4 +73,4 @@ class MertikFireplaceDevice(HomeyDevice):
             )
 
 
-homey_export = MertikFireplaceDevice
+homey_export = MaxitrolFireplaceDevice

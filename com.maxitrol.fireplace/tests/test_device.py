@@ -2,7 +2,7 @@ import asyncio
 from types import SimpleNamespace
 import unittest
 
-from mertik_protocol import Command, build_frame
+from maxitrol_g6r_h4t_protocol import Command, build_frame
 
 from homey_test_support import load_app_module
 
@@ -73,7 +73,7 @@ class DeviceTests(unittest.IsolatedAsyncioTestCase):
         )
         selected_signal = signal or FakeSignal()
         rf = FakeRF(selected_signal)
-        device = module.MertikFireplaceDevice()
+        device = module.MaxitrolFireplaceDevice()
         device.data = {"address": address}
         device.homey = SimpleNamespace(rf=rf)
 

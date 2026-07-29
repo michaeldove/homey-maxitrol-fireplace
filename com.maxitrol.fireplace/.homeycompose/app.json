@@ -1,5 +1,5 @@
 {
-  "id": "com.mertik.fireplace",
+  "id": "com.maxitrol.fireplace",
   "version": "0.1.0",
   "compatibility": ">=13.0.0",
   "sdk": 3,
@@ -9,13 +9,13 @@
     "local"
   ],
   "name": {
-    "en": "Mertik Fireplace"
+    "en": "Maxitrol"
   },
   "description": {
-    "en": "Controls Mertik Maxitrol G6R-H4T5 fireplaces over 433 MHz."
+    "en": "Controls compatible Maxitrol G6R H4T fireplace systems over 433.92 MHz."
   },
   "author": {
-    "name": "Mertik Fireplace App Contributors"
+    "name": "Maxitrol App Contributors"
   },
   "category": [
     "climate"

@@ -1,30 +1,54 @@
-# Mertik Maxitrol G6R-H4T5-Z19 RF Protocol
+# Maxitrol G6R H4T 433.92 MHz RF Protocol
 
 ## Status
 
-This document describes the 433 MHz over-the-air protocol observed from a
-Mertik Maxitrol `G6R-H4T5-Z19` fireplace handset paired with a
-`G6R-R4AU` receiver.
+This document describes a 433.92 MHz over-the-air profile in the Maxitrol G6R
+H4T fireplace handset protocol family. The timings and frame contents were
+observed from a `G6R-H4T5-Z19` handset paired with a `G6R-R4AU` receiver.
+
+Older handsets, manuals, and community integrations may use the former
+**Mertik Maxitrol** name. [Maxitrol consolidated the brand worldwide in
+2020](https://www.maxitrol.com/2020/12/maxitrol-one-name-worldwide/).
 
 The frame contents and command values below are based on 45 clean captured
 bursts. Field meanings marked **inferred** are strongly supported by the
 captured button combinations and by existing G6R integrations, but have not
-been confirmed by a manufacturer protocol specification.
+been confirmed by a manufacturer protocol specification. Compatibility beyond
+the verified handset and receiver is therefore stated in tiers.
 
 ## Scope
 
 | Item | Value |
 |---|---|
-| Handset | `G6R-H4T5-Z19` |
-| Receiver | `G6R-R4AU` |
-| Protocol family | Mertik Maxitrol G6R-H4T5 / G6R-H4TB |
+| Verified handset | `G6R-H4T5-Z19` |
+| Verified receiver | `G6R-R4AU` |
+| Captured profile | G6R H4T5 |
+| Protocol family | Maxitrol G6R H4T 433 MHz |
 | Region/frequency | 433.92 MHz |
 | Direction covered | Handset to receiver |
 | Address observed | `0x15C03` |
 
 The `Z19` suffix appears to identify an OEM or application configuration. No
 public definition for the suffix has been found, and the captured RF format
-matches the documented G6R-H4T5 family.
+matches the established G6R H4T family.
+
+## Compatibility Boundaries
+
+Maxitrol supplies the G6R/GV60 control system as an OEM component. A fireplace
+may therefore use this protocol even when the appliance carries another
+manufacturer's brand. Compatibility should be determined from the handset and
+receiver model labels rather than the fireplace badge.
+
+| Tier | Models or systems | Status |
+|---|---|---|
+| Verified | `G6R-H4T5-Z19` with `G6R-R4AU` | Captured and tested with Homey and RTL-SDR |
+| Strong candidates | `G6R-H4T5-*`, `G6R-H4TB`, `G6R-H4T`, `G6R-H4T21-Z22` | Grouped in the same RF family by existing integrations; not tested here |
+| Related variants | `G6R-H4T1`, `G6R-H4TD`, `G6R-H4T16`, `G6R-H3T1`, `G6R-H4S` | May use another G6R protocol subtype; unsupported until captured |
+| Excluded | B6R/Symax/myfire bidirectional systems; 315 MHz or 868 MHz handsets | Different generation, directionality, or carrier frequency |
+
+Use of 433.92 MHz OOK/PWM alone does not establish compatibility. A candidate
+must also match this profile's 22-bit frame, 18-bit handset address, command
+nibble, pulse timings, and repeat cadence.
 
 ## RF and Timing
 
@@ -109,8 +133,8 @@ Hex:     0x15C03
 Decimal: 89091
 ```
 
-The 18-bit width agrees with the G6R-H4T5/G6R-H4TB subtype used by RFXCOM.
-Another handset will normally have a different address.
+The 18-bit width agrees with the G6R H4T5/H4TB profile reported by existing
+integrations. Another handset will normally have a different address.
 
 ## Command Field
 
@@ -220,12 +244,15 @@ identity.
 - Meaning of command bit `C3`.
 - Whether additional thermostat, timer, auxiliary burner, or pairing frames
   exist for the `Z19` configuration.
+- Which G6R H4T variants use this exact 22-bit profile without timing or
+  command differences.
 - Minimum reliable repetition count for each receiver operation.
 - Receiver tolerance for pulse duration and repeat-cadence variation.
 
 ## References
 
+- [Maxitrol: One Name Worldwide](https://www.maxitrol.com/2020/12/maxitrol-one-name-worldwide/)
 - [Maxitrol GV60 installation and operating manual](https://fcc.report/FCC-ID/RTDG6RH/2534187.pdf)
 - [RFXCOM RFXtrx user guide and G6R compatibility list](https://www.rfxcom.com/WebRoot/StoreNL2/Shops/78165469/MediaGallery/Downloads/RFXtrx_User_Guide.pdf)
-- [Reverse-engineered Homey G6R signal definition](https://github.com/nlrb/com.mertik.maxitrol/blob/master/app.json)
-- [Reverse-engineered Homey G6R command implementation](https://github.com/nlrb/com.mertik.maxitrol/blob/master/drivers/fireplace/driver.js)
+- [Legacy Mertik Maxitrol Homey G6R signal definition](https://github.com/nlrb/com.mertik.maxitrol/blob/master/app.json)
+- [Legacy Mertik Maxitrol Homey G6R command implementation](https://github.com/nlrb/com.mertik.maxitrol/blob/master/drivers/fireplace/driver.js)
