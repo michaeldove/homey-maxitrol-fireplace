@@ -5,6 +5,7 @@
   "sdk": 3,
   "runtime": "python",
   "pythonVersion": "3.14",
+  "brandColor": "#D66A1F",
   "platforms": [
     "local"
   ],
@@ -20,6 +21,11 @@
   "category": [
     "climate"
   ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
   "permissions": [
     "homey:wireless:433"
   ]

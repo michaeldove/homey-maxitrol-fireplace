@@ -6,6 +6,7 @@
   "sdk": 3,
   "runtime": "python",
   "pythonVersion": "3.14",
+  "brandColor": "#D66A1F",
   "platforms": [
     "local"
   ],
@@ -21,6 +22,11 @@
   "category": [
     "climate"
   ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
   "permissions": [
     "homey:wireless:433"
   ],
@@ -84,6 +90,11 @@
             "en": "Flame down"
           }
         }
+      },
+      "images": {
+        "small": "/drivers/fireplace/assets/images/small.png",
+        "large": "/drivers/fireplace/assets/images/large.png",
+        "xlarge": "/drivers/fireplace/assets/images/xlarge.png"
       },
       "platforms": [
         "local"

@@ -20,6 +20,11 @@
       }
     }
   },
+  "images": {
+    "small": "/drivers/fireplace/assets/images/small.png",
+    "large": "/drivers/fireplace/assets/images/large.png",
+    "xlarge": "/drivers/fireplace/assets/images/xlarge.png"
+  },
   "platforms": [
     "local"
   ],
