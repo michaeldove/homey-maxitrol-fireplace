@@ -13,10 +13,19 @@
     "en": "Maxitrol"
   },
   "description": {
-    "en": "Controls compatible Maxitrol G6R H4T fireplace systems over 433.92 MHz."
+    "en": "Bring your G6R fireplace into the heart of your smart home."
+  },
+  "tags": {
+    "en": [
+      "fireplace",
+      "gas fireplace",
+      "G6R",
+      "GV60",
+      "433 MHz"
+    ]
   },
   "author": {
-    "name": "Maxitrol App Contributors"
+    "name": "Michael Dove"
   },
   "category": [
     "climate"
