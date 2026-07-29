@@ -1,9 +1,9 @@
 # Maxitrol Fireplace for Homey
 
 A community-developed Homey app for Maxitrol G6R H4T 433.92 MHz fireplace
-controls. It runs locally on Homey Pro using the Python Homey Apps SDK and has
-been physically verified with a `G6R-H4T5-Z19` handset and `G6R-R4AU`
-receiver.
+controls. It runs locally on Homey using the Python Homey Apps SDK and has been
+physically verified with a `G6R-H4T5-Z19` handset, `G6R-R4AU` receiver, and
+Homey Self-Hosted Server with a Homey Bridge.
 
 The app learns the unique 18-bit identity of the existing handset during
 pairing, then uses that identity for every transmission. It provides:
@@ -19,12 +19,12 @@ Maxitrol supplies the G6R/GV60 control system to multiple fireplace
 manufacturers. Compatibility therefore depends on the handset and receiver
 model labels rather than the brand shown on the fireplace.
 
-| Component | Verified model |
+| Component | Supported or verified configuration |
 |---|---|
 | Handset | `G6R-H4T5-Z19` |
 | Receiver | `G6R-R4AU` |
 | Radio | 433.92 MHz |
-| Homey | Homey Pro, software 13.0.0 or newer |
+| Homey | Homey Self-Hosted Server 13.0.0+ with Homey Bridge (verified), or Homey Pro 13.0.0+ with 433 MHz radio hardware |
 
 Other G6R H4T variants may share the protocol but are not yet claimed as
 verified. B6R/Symax/myfire systems, Wi-Fi controllers, 315 MHz and 868 MHz

@@ -27,6 +27,12 @@
   "author": {
     "name": "Michael Dove"
   },
+  "source": "https://github.com/michaeldove/homey-maxitrol-fireplace",
+  "homepage": "https://github.com/michaeldove/homey-maxitrol-fireplace",
+  "support": "https://github.com/michaeldove/homey-maxitrol-fireplace/issues",
+  "bugs": {
+    "url": "https://github.com/michaeldove/homey-maxitrol-fireplace/issues"
+  },
   "category": [
     "climate"
   ],

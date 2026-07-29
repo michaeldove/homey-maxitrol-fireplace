@@ -20,11 +20,11 @@ only by the fireplace brand.
 
 ### Physically verified
 
-| Component | Verified model |
+| Component | Supported or verified configuration |
 |---|---|
 | Handset | `G6R-H4T5-Z19` |
 | Receiver | `G6R-R4AU` |
-| Homey | Homey Pro with software 13.0.0 or newer |
+| Homey | Homey Self-Hosted Server 13.0.0+ with Homey Bridge (verified), or Homey Pro 13.0.0+ with 433 MHz radio hardware |
 
 ### Protocol-family candidates
 
@@ -49,7 +49,7 @@ This is a native Python Homey app:
 
 - Homey Apps SDK v3
 - Python 3.14
-- Local/Homey Pro platform
+- Local platform (Homey Pro, or Homey Self-Hosted Server with Homey Bridge)
 - `homey:wireless:433` permission
 
 ## RF signal definition
