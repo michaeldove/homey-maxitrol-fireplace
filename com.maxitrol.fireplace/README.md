@@ -4,10 +4,6 @@ Python Homey App SDK v3 support for the Maxitrol G6R H4T 433.92 MHz
 fireplace handset protocol family. The implementation has been physically
 verified with a `G6R-H4T5-Z19` handset and `G6R-R4AU` receiver.
 
-Older handsets, manuals, and community integrations may use the former
-**Mertik Maxitrol** name. [Maxitrol consolidated the brand worldwide in
-2020](https://www.maxitrol.com/2020/12/maxitrol-one-name-worldwide/).
-
 The app learns the 18-bit handset address during pairing and provides:
 
 - Fireplace ON and OFF through Homey's standard `onoff` capability.
@@ -55,10 +51,6 @@ This is a native Python Homey app:
 - Python 3.14
 - Local/Homey Pro platform
 - `homey:wireless:433` permission
-
-Python is now an officially supported Homey app runtime. The higher-level
-`homey-rfdriver` package remains Node.js-only, so this app uses the native
-Python `ManagerRF.get_signal_433()` and `Signal.tx()` APIs.
 
 ## RF signal definition
 
@@ -152,14 +144,10 @@ The receiver is enabled only during the 30-second learning window and is
 disabled immediately after success, timeout, or cancellation.
 
 The learned ID is included in the device's immutable `data` and is used to
-build every transmitted ON, OFF, flame-up, and flame-down frame. The original
-captured address `0x15C03` remains only in the protocol tests and documentation.
+build every transmitted ON, OFF, flame-up, and flame-down frame.
 
 Learning a handset does not place the fireplace receiver into pairing mode or
 change its existing pairing.
-
-The manifest contains a placeholder contributor name under `author`. Replace it
-with the publisher's name (and optionally email/website) before publication.
 
 ## First RF test
 
