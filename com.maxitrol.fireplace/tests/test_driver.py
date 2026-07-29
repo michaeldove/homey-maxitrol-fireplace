@@ -163,7 +163,7 @@ class DriverTests(unittest.IsolatedAsyncioTestCase):
 
         task = asyncio.create_task(session.handlers["learn_remote"]())
         await asyncio.sleep(0)
-        await session.handlers["disconnect"]()
+        await session.handlers["disconnect"]({"reason": "pairing_closed"})
 
         with self.assertRaises(asyncio.CancelledError):
             await task

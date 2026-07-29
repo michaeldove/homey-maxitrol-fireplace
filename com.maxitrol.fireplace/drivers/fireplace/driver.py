@@ -112,7 +112,7 @@ class MaxitrolFireplaceDriver(HomeyDriver):
                     },
                 }
 
-        async def on_disconnect() -> None:
+        async def on_disconnect(_data: Any = None) -> None:
             nonlocal learned_address
 
             if learned_address is not None and not learned_address.done():

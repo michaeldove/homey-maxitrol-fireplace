@@ -65,7 +65,8 @@ It currently uses:
 ```text
 logical 0: 308 µs carrier-on, 624 µs carrier-off
 logical 1: 609 µs carrier-on, 323 µs carrier-off
-end of frame: 609 µs carrier-on, then 21,860 µs carrier-off
+end of frame: 609 µs carrier-on
+inter-frame interval: 21,860 µs carrier-off
 start-to-start repeat cadence: approximately 43 ms
 default repetitions: 10
 ```

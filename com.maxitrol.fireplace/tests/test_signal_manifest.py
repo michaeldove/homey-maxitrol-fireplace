@@ -21,7 +21,7 @@ class SignalManifestTests(unittest.TestCase):
     def test_rf_parameters_match_verified_handset_capture(self) -> None:
         self.assertEqual(self.signal["carrier"], 433_920_000)
         self.assertEqual(self.signal["words"], [[308, 624], [609, 323]])
-        self.assertEqual(self.signal["eof"], [609, 21_860])
+        self.assertEqual(self.signal["eof"], [609])
         self.assertEqual(self.signal["interval"], 21_860)
         self.assertEqual(self.signal["repetitions"], 10)
         self.assertEqual(self.signal["minimalLength"], 22)
@@ -35,7 +35,9 @@ class SignalManifestTests(unittest.TestCase):
 
         payload_duration_us = sum(sum(words[bit]) for bit in frame)
         on_air_frame_us = payload_duration_us + eof[0]
-        start_to_start_us = payload_duration_us + sum(eof)
+        start_to_start_us = (
+            payload_duration_us + sum(eof) + self.signal["interval"]
+        )
 
         self.assertEqual(payload_duration_us, 20_504)
         self.assertEqual(on_air_frame_us, 21_113)

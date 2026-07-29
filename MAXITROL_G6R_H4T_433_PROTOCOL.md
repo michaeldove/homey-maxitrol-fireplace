@@ -91,10 +91,10 @@ off for approximately 21.86 ms before the next frame. The terminal pulse is
 not part of the 22-bit payload.
 
 The Homey implementation therefore uses `0 = [308, 624]`,
-`1 = [609, 323]`, followed by an end-of-frame sequence
-`[609, 21860]`. The explicit idle tail is necessary because Homey's normal
-signal `interval` field cannot express the approximately 43,000 µs
-start-to-start cadence.
+`1 = [609, 323]`, followed by the end-of-frame pulse `[609]`. The
+approximately 21.86 ms carrier-off gap is configured separately with
+`interval = 21860`. Together, the payload, terminal pulse, and interval
+produce the approximately 43,000 µs start-to-start cadence.
 
 ## Frame Format
 
